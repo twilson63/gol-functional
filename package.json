@@ -4,7 +4,8 @@
   "description": "A conways game of life simulation using ramda",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/index.js -o index.js"
   },
   "keywords": [],
   "author": "twilson63",
@@ -12,5 +13,9 @@
   "dependencies": {
     "ramda": "^0.22.1",
     "random-int": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.18.0"
   }
 }
