@@ -1,0 +1,16 @@
+{
+  "name": "gol-functional",
+  "version": "1.0.0",
+  "description": "A conways game of life simulation using ramda",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "twilson63",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.22.1",
+    "random-int": "^1.0.0"
+  }
+}
