@@ -18,7 +18,7 @@ settings:
 - generate: true | false
 - speed: 1000
 */
-module.exports = ({size=20, generate=true, speed=1000}, onTick) => {
+const sim = ({size=20, generate=true, speed=1000}, onTick) => {
   let running = false
   // create board
   let board = times(n => times(createCell, size), size)
@@ -90,6 +90,22 @@ module.exports = ({size=20, generate=true, speed=1000}, onTick) => {
     return generate ? randomInt(0,1) : 0
   }
 
+  function updateCell(board, row, col, value) {
+    return compose(
+      update(row, __, board),
+      update(col, value),
+      nth(row)
+    )(board)
+  }
+
+  function inBoard(size) {
+    return (row, col) =>
+      and(
+        and(gt(row, -1), gt(col, -1)),
+        and(lt(row, size), lt(col, size))
+      )
+  }
+
   function getValue ([row, col]) {
     return inBoard(size)(row,col) ? nth(col, nth(row, board)) : 0
   }
@@ -115,19 +131,4 @@ module.exports = ({size=20, generate=true, speed=1000}, onTick) => {
   }
 }
 
-// pure functions
-function updateCell(board, row, col, value) {
-  return compose(
-    update(row, __, board),
-    update(col, value),
-    nth(row)
-  )(board)
-}
-
-function inBoard(size) {
-  return (row, col) =>
-    and(
-      and(gt(row, -1), gt(col, -1)),
-      and(lt(row, size), lt(col, size))
-    )
-}
+module.exports = sim
