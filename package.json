@@ -11,6 +11,7 @@
   "author": "twilson63",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.18.0",
     "ramda": "^0.22.1",
     "random-int": "^1.0.0"
   },

@@ -83,6 +83,9 @@ const sim = ({size=20, generate=true, speed=1000}, onTick) => {
       let value = equals(1, nth(col, nth(row, board))) ? 0 : 1
       board = updateCell(board, row, col, value)
     }
+
+    onTick(board)
+
     return board
   }
 
