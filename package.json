@@ -1,6 +1,6 @@
 {
   "name": "gol-functional",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A conways game of life simulation using ramda",
   "main": "index.js",
   "scripts": {
