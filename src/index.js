@@ -5,7 +5,7 @@
 
 const { times, equals, byIndex, compose,
 update, gt, lt, and, not, map, addIndex,
-sum, add, subtract, flatten, curry } = require('fun-fp')
+sum, add, subtract, flatten, curry, reduce } = require('fun-fp')
 
 // get random integer function
 const randomInt = require('random-int')
@@ -58,7 +58,7 @@ const sim = ({size=20, generate=true, speed=1000}, onTick) => {
     )
 
     if (onTick) onTick(board)
-    //console.log(board)
+    console.log(active())
     if (and(running, active())) {
       setTimeout(tick, speed)
     }
@@ -122,7 +122,7 @@ const sim = ({size=20, generate=true, speed=1000}, onTick) => {
   }
 
   function active () {
-    return gt(sum(flatten(board)), 0)
+    return gt(reduce((acc,v) => acc + sum(v), 0, board), 0)
   }
 
   function neighbors(row, col) {

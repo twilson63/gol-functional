@@ -23,7 +23,8 @@ var _require = require('fun-fp'),
     add = _require.add,
     subtract = _require.subtract,
     flatten = _require.flatten,
-    curry = _require.curry;
+    curry = _require.curry,
+    reduce = _require.reduce;
 
 // get random integer function
 
@@ -86,7 +87,7 @@ var sim = function sim(_ref, onTick) {
     }, board);
 
     if (onTick) onTick(board);
-    //console.log(board)
+    console.log(active());
     if (and(running, active())) {
       setTimeout(tick, speed);
     }
@@ -146,7 +147,9 @@ var sim = function sim(_ref, onTick) {
   }
 
   function active() {
-    return gt(sum(flatten(board)), 0);
+    return gt(reduce(function (acc, v) {
+      return acc + sum(v);
+    }, 0, board), 0);
   }
 
   function neighbors(row, col) {
