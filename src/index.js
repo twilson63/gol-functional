@@ -14,7 +14,7 @@ const randomInt = require('random-int')
 //   subtract(__, 1), subtract(__, 1), add(__, 1), add(__, 1)
 // ]
 
-const mapIndex = addIndex(map)
+const mapIndex = addindex(map)
 const curryMap = curry(map)
 
 /*

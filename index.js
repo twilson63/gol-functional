@@ -35,7 +35,7 @@ var randomInt = require('random-int');
 //   subtract(__, 1), subtract(__, 1), add(__, 1), add(__, 1)
 // ]
 
-var mapIndex = addIndex(map);
+var mapIndex = addindex(map);
 var curryMap = curry(map);
 
 /*
