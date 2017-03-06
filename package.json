@@ -11,7 +11,7 @@
   "author": "twilson63",
   "license": "ISC",
   "dependencies": {
-    "fun-fp": "file:///Users/twilson631/code/fun-fp",
+    "fun-fp": "^1.14.0",
     "random-int": "^1.0.0"
   },
   "devDependencies": {
