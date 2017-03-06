@@ -4,7 +4,7 @@
 // } = require('ramda')
 
 const { times, equals, byIndex, compose,
-update, gt, lt, and, not, map, addIndex,
+update, gt, lt, and, not, map, addindex,
 sum, add, subtract, flatten, curry, reduce } = require('fun-fp')
 
 // get random integer function
