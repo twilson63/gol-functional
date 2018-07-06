@@ -12,10 +12,20 @@
   "license": "ISC",
   "dependencies": {
     "fun-fp": "^1.14.0",
+    "ramda": "^0.25.0",
     "random-int": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.18.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twilson63/gol-functional.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twilson63/gol-functional/issues"
+  },
+  "homepage": "https://github.com/twilson63/gol-functional#readme"
 }
