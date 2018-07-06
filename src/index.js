@@ -15,7 +15,9 @@ import {
   add,
   subtract,
   tap,
-  flatten
+  flatten,
+  curry,
+  reduce
 } from 'ramda'
 
 // get random integer function
@@ -65,7 +67,7 @@ const sim = ({ size = 20, generate = true, speed = 1000 }, onTick) => {
     )
 
     if (onTick) onTick(board)
-    console.log(active())
+    //console.log(active())
     if (and(running, active())) {
       setTimeout(tick, speed)
     }
@@ -91,7 +93,7 @@ const sim = ({ size = 20, generate = true, speed = 1000 }, onTick) => {
     const canToggle = and(not(running), inBoard(size)(row, col))
 
     if (canToggle) {
-      let value = equals(1, byIndex(col, byIndex(row, board))) ? 0 : 1
+      let value = equals(1, nth(col, nth(row, board))) ? 0 : 1
       board = updateCell(board, row, col, value)
     }
 
@@ -105,7 +107,7 @@ const sim = ({ size = 20, generate = true, speed = 1000 }, onTick) => {
   }
 
   function updateCell(board, row, col, value) {
-    const newRow = compose(update(col, value), byIndex(row))(board)
+    const newRow = compose(update(col, value), nth(row))(board)
 
     return update(row, newRow, board)
   }
@@ -116,7 +118,7 @@ const sim = ({ size = 20, generate = true, speed = 1000 }, onTick) => {
   }
 
   function getValue([row, col]) {
-    return inBoard(size)(row, col) ? byIndex(col, byIndex(row, board)) : 0
+    return inBoard(size)(row, col) ? nth(col, nth(row, board)) : 0
   }
 
   function active() {

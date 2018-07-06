@@ -18,7 +18,7 @@ var _randomInt2 = _interopRequireDefault(_randomInt);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapIndex = (0, _ramda.addIndex)(_ramda.map);
-var curryMap = curry(_ramda.map);
+var curryMap = (0, _ramda.curry)(_ramda.map);
 
 /*
 settings:
@@ -69,7 +69,7 @@ var sim = function sim(_ref, onTick) {
     }, board);
 
     if (onTick) onTick(board);
-    console.log(active());
+    //console.log(active())
     if ((0, _ramda.and)(running, active())) {
       setTimeout(tick, speed);
     }
@@ -95,7 +95,7 @@ var sim = function sim(_ref, onTick) {
     var canToggle = (0, _ramda.and)((0, _ramda.not)(running), inBoard(size)(row, col));
 
     if (canToggle) {
-      var value = (0, _ramda.equals)(1, byIndex(col, byIndex(row, board))) ? 0 : 1;
+      var value = (0, _ramda.equals)(1, (0, _ramda.nth)(col, (0, _ramda.nth)(row, board))) ? 0 : 1;
       board = updateCell(board, row, col, value);
     }
 
@@ -109,7 +109,7 @@ var sim = function sim(_ref, onTick) {
   }
 
   function updateCell(board, row, col, value) {
-    var newRow = (0, _ramda.compose)((0, _ramda.update)(col, value), byIndex(row))(board);
+    var newRow = (0, _ramda.compose)((0, _ramda.update)(col, value), (0, _ramda.nth)(row))(board);
 
     return (0, _ramda.update)(row, newRow, board);
   }
@@ -125,11 +125,11 @@ var sim = function sim(_ref, onTick) {
         row = _ref3[0],
         col = _ref3[1];
 
-    return inBoard(size)(row, col) ? byIndex(col, byIndex(row, board)) : 0;
+    return inBoard(size)(row, col) ? (0, _ramda.nth)(col, (0, _ramda.nth)(row, board)) : 0;
   }
 
   function active() {
-    return (0, _ramda.gt)(reduce(function (acc, v) {
+    return (0, _ramda.gt)((0, _ramda.reduce)(function (acc, v) {
       return acc + (0, _ramda.sum)(v);
     }, 0, board), 0);
   }
