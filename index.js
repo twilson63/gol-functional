@@ -17,7 +17,7 @@ var _randomInt2 = _interopRequireDefault(_randomInt);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapIndex = addindex(_ramda.map);
+var mapIndex = (0, _ramda.addIndex)(_ramda.map);
 var curryMap = curry(_ramda.map);
 
 /*
