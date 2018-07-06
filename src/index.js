@@ -20,7 +20,7 @@ import {
 
 // get random integer function
 import randomInt from 'random-int'
-const mapIndex = addindex(map)
+const mapIndex = addIndex(map)
 const curryMap = curry(map)
 
 /*
