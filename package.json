@@ -11,7 +11,6 @@
   "author": "twilson63",
   "license": "ISC",
   "dependencies": {
-    "fun-fp": "^1.14.0",
     "ramda": "^0.25.0",
     "random-int": "^1.0.0"
   },
